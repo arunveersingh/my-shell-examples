@@ -28,23 +28,28 @@ pwd
 
 # function to create a file in second folder
 function firstShellFunction() {
+  echo "current path"
   pwd
   echo "executing now"
   cd second_folder
+  echo "current path"
   pwd
   touch newfileinsecondfolder.txt
   echo "this text goes in this file" >> newfileinsecondfolder.txt
   ls -lrth
-  echo "executing completed"
+  echo "execution completed"
+  echo "current path"
   pwd
 
   cd .. || exit # || exit if fails
 }
 
+echo "invoke function within this shell file"
 firstShellFunction
+echo "current path"
 pwd
 
-# to invoke a function in another shell
+echo "invoke a function in another shell"
 source ./create_third_folder.sh
 secondShellFunction
 pwd
